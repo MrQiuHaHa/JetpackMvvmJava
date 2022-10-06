@@ -3,6 +3,11 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        //阿里云jcenter仓库
+        maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+        maven {
+            url 'https://jitpack.io'
+        }
     }
 }
 dependencyResolutionManagement {
@@ -10,7 +15,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //阿里云jcenter仓库
+        maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+        maven {
+            url 'https://jitpack.io'
+        }
     }
 }
+include ':app', ':jetpackmvvm'
 rootProject.name = "JetpackMvvmJava"
-include ':app'
