@@ -2,11 +2,12 @@ package com.davis.jetpackmvvm.util;
 
 public class UrlEncoderUtils {
     private UrlEncoderUtils() {}
-
-    /*
-    判断 str 是否已经 URLEncoder.encode() 过
-    经常遇到这样的情况, 拿到一个 URL, 但是搞不清楚到底要不要 URLEncoder.encode()
-    不做 URLEncoder.encode() 吧, 担心出错, 做 URLEncoder.encode() 吧, 又怕重复了
+    /**
+     * 判断 str 是否已经 URLEncoder.encode() 过
+     * 经常遇到这样的情况, 拿到一个 URL, 但是搞不清楚到底要不要 URLEncoder.encode()
+     * 不做 URLEncoder.encode() 吧, 担心出错, 做 URLEncoder.encode() 吧, 又怕重复了
+     * @param str
+     * @return
      */
     static boolean hasUrlEncoded(String str) {
         boolean encode = false;

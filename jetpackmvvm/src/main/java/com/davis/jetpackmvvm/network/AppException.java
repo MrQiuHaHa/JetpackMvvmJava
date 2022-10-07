@@ -20,9 +20,9 @@ public class AppException extends Exception {
     }
 
     AppException(Error error, Throwable e) {
-        errCode = error.getCode();
-        errorMsg = error.getDescription();
-        errorLog = e.getMessage();
+        this.errCode = error.getCode();
+        this.errorMsg = error.getDescription();
+        this.errorLog = e.getMessage();
         this.throwable = e;
     }
 }
