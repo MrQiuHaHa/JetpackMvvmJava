@@ -3,21 +3,45 @@ package com.davis.jetpackmvvm.base;
 import android.app.Application;
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.IntentFilter;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ProcessLifecycleOwner;
+
+import com.davis.jetpackmvvm.network.manager.NetworkStateReceive;
 
 public class Ktx extends ContentProvider {
 
     static Application app;
     static boolean watchActivityLife = true;
     static boolean watchAppLife = true;
+    static private NetworkStateReceive mNetworkStateReceive;
 
     @Override
     public boolean onCreate() {
-        return false;
+        Application application = (Application)getContext().getApplicationContext();
+        install(application);
+        return true;
+    }
+
+    private void install(Application application) {
+        Ktx.app = application;
+        Ktx.mNetworkStateReceive = new NetworkStateReceive();
+        Ktx.app.registerReceiver(
+                Ktx.mNetworkStateReceive,
+                new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        );
+        if (Ktx.watchActivityLife) {
+//            application.registerActivityLifecycleCallbacks();
+        }
+        if (Ktx.watchAppLife) {
+//            ProcessLifecycleOwner.get().getLifecycle().addObserver();
+        }
     }
 
     @Nullable
