@@ -9,7 +9,7 @@ public class NetworkStateManager {
     private NetworkStateManager() {}
     private static final NetworkStateManager manager = new NetworkStateManager();
 
-    EventLiveData<NetState> mNetworkStateCallback = new  EventLiveData<NetState>();
+    public EventLiveData<NetState> mNetworkStateCallback = new  EventLiveData<NetState>();
 
     public static NetworkStateManager instance() {
         return manager;

@@ -13,13 +13,13 @@ public interface FormatPrinter {
      * @param bodyString 发送给服务器的请求体中的数据(已解析)
      * @return
      */
-    public Void printJsonRequest(Request request, String bodyString);
+    public void printJsonRequest(Request request, String bodyString);
 
     /**
      * 打印网络请求信息, 当网络请求时 {[okhttp3.RequestBody]} 为 `null` 或不可解析的情况
      * @return
      */
-    public Void printFileRequest(Request request);
+    public void printFileRequest(Request request);
 
     /**
      * 打印网络响应信息, 当网络响应时 {[okhttp3.ResponseBody]} 可以解析的情况
@@ -33,7 +33,7 @@ public interface FormatPrinter {
      * @param message      响应信息
      * @param responseUrl  请求地址
      */
-    public Void printJsonResponse(
+    public void printJsonResponse(
             long chainMs,
             boolean isSuccessful,
             int code,
@@ -56,7 +56,7 @@ public interface FormatPrinter {
      * @param message      响应信息
      * @param responseUrl  请求地址
      */
-    public Void printFileResponse(
+    public void printFileResponse(
             long chainMs,
             boolean isSuccessful,
             int code,
